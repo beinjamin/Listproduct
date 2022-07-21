@@ -39,8 +39,14 @@ class AuthScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildTab("Login", true, context),
-                  buildTab("Register", true, context),
+                  InkWell(
+                    onTap: () {},
+                    child: buildTab("Login", true, context),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: buildTab("Register", true, context),
+                  )
                 ],
               ),
               const SizedBox(
