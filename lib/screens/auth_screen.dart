@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:listproduct/controllers/auth_controller.dart';
 import 'package:listproduct/utils.dart';
 import 'package:listproduct/widgets/login_widget.dart';
 
 class AuthScreen extends StatelessWidget {
+  AuthController authController = Get.put(AuthController());
   buildTab(text, selected, context) {
     return Container(
       width: MediaQuery.of(context).size.width / 2,
