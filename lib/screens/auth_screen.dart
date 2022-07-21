@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listproduct/utils.dart';
+import 'package:listproduct/widgets/login_widget.dart';
 
 class AuthScreen extends StatelessWidget {
   buildTab(text, selected, context) {
@@ -42,7 +43,7 @@ class AuthScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              LoginWidget();
+              LoginWidget(),
             ],
           ),
         ),
