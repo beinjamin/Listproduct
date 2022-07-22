@@ -38,6 +38,17 @@ class LoginWidget extends StatelessWidget {
                 border: InputBorder.none),
           ),
         ),
+        const SizedBox(height: 23),
+        Container(
+          width: MediaQuery.of(context).size.width * 0.6,
+          height: 45,
+          child: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(backgroundColor: Colors.lightBlue[200]),
+            child: Text("Login",
+                style: textStyle(20, Colors.white, FontWeight.bold)),
+          ),
+        )
       ],
     );
   }
