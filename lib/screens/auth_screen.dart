@@ -36,18 +36,21 @@ class AuthScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  InkWell(
-                    onTap: () {},
-                    child: buildTab("Login", true, context),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: buildTab("Register", true, context),
-                  )
-                ],
+              Obx(
+                () => Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      onTap: () => authController.changeTab("Login"),
+                      child: buildTab("Login",
+                          authController.tab.value == "Login", context),
+                    ),
+                    InkWell(
+                      onTap: () => authController.changeTab("Register"),
+                      child: buildTab("Register", false, context),
+                    )
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 20,
