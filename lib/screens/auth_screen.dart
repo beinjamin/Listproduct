@@ -32,7 +32,7 @@ class AuthScreen extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "ListProduct",
+                "SaveProduct",
                 style: textStyle(35, Colors.lightBlue[400]!, FontWeight.bold),
               ),
               const SizedBox(
