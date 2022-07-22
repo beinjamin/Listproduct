@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:listproduct/controllers/auth_controller.dart';
 import 'package:listproduct/utils.dart';
+import 'package:listproduct/widgets/login_widget.dart';
+import 'package:listproduct/widgets/register_widget.dart';
 
 class AuthScreen extends StatelessWidget {
+  AuthController authController = Get.put(AuthController());
   buildTab(text, selected, context) {
     return Container(
       width: MediaQuery.of(context).size.width / 2,
@@ -32,17 +37,28 @@ class AuthScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  buildTab("Login", true, context),
-                  buildTab("Register", true, context),
-                ],
+              Obx(
+                () => Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      onTap: () => authController.changeTab("Login"),
+                      child: buildTab("Login",
+                          authController.tab.value == "Login", context),
+                    ),
+                    InkWell(
+                      onTap: () => authController.changeTab("Register"),
+                      child: buildTab("Register", false, context),
+                    )
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              LoginWidget();
+              Obx(() => authController.tab.value == "Login"
+                  ? LoginWidget()
+                  : RegisterWidget())
             ],
           ),
         ),
