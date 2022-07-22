@@ -16,7 +16,8 @@ class AuthScreen extends StatelessWidget {
           text,
           style: selected
               ? textStyle(22, Colors.lightBlue, FontWeight.bold)
-              : textStyle(22, Colors.grey, FontWeight.w500),
+              : textStyle(
+                  22, Color.fromARGB(255, 33, 243, 121), FontWeight.w500),
         ),
       ),
     );
