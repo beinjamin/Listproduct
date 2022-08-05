@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthController extends GetxController {
   RxString tab = "Login".obs;
@@ -7,7 +8,9 @@ class AuthController extends GetxController {
     tab.value = value;
   }
 
-  register(String email, String password, String username) {}
+  register(String email, String password, String username) async {
+    UserCredential userCredential = await firebaseAuth
+        .createUserWithEmailAndPassword(email: email, password: password);
+    User? user = userCredential.user;
+  }
 }
-
-class FirebaseAuth {}
